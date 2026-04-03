@@ -1,7 +1,7 @@
 export default function StatsSection() {
   return (
     <section className="relative overflow-hidden bg-surface py-32">
-      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent"></div>
+      <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-outline-variant/30 to-transparent"></div>
       <div className="container mx-auto px-8">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <div className="lg:w-1/2">
@@ -19,7 +19,7 @@ export default function StatsSection() {
               scale.
             </p>
             <div className="flex items-center gap-4">
-              <div className="h-[1px] w-12 bg-primary"></div>
+              <div className="h-px w-12 bg-primary"></div>
               <span className="font-label text-xs uppercase tracking-[0.2em] text-outline">
                 Since 2018
               </span>

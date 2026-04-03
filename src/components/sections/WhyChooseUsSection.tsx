@@ -4,6 +4,60 @@ const filledIconStyle: CSSProperties = {
   fontVariationSettings: "'FILL' 1",
 };
 
+type AdvantageCardProps = {
+  icon: string;
+  title: string;
+  description: string;
+  className: string;
+};
+
+const advantageCards = [
+  {
+    icon: "rocket_launch",
+    title: "Cutting-Edge Innovation",
+    description:
+      "Access to R&D labs and the latest technological breakthroughs before they hit the mainstream.",
+    className: "",
+  },
+  {
+    icon: "groups",
+    title: "Expert Team",
+    description:
+      "A collective of senior architects, data scientists, and creative engineers with decades of experience.",
+    className: "md:translate-x-6",
+  },
+  {
+    icon: "award_star",
+    title: "Proven Track Record",
+    description:
+      "Delivering high-impact solutions for Fortune 500 companies and high-growth tech ventures alike.",
+    className: "",
+  },
+];
+
+function AdvantageCard({
+  icon,
+  title,
+  description,
+  className,
+}: AdvantageCardProps) {
+  return (
+    <div
+      className={`glass-card flex translate-x-0 items-start gap-6 p-8 transition-colors hover:bg-surface-container-high ${className}`}
+    >
+      <div className="rounded-lg bg-secondary-container/20 p-3 text-secondary">
+        <span className="material-symbols-outlined" style={filledIconStyle}>
+          {icon}
+        </span>
+      </div>
+      <div>
+        <h4 className="mb-1 font-headline text-xl font-bold">{title}</h4>
+        <p className="text-sm text-on-surface-variant">{description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function WhyChooseUsSection() {
   return (
     <section className="bg-surface-container-lowest py-24">
@@ -53,65 +107,15 @@ export default function WhyChooseUsSection() {
           </div>
 
           <div className="grid grid-cols-1 gap-4">
-            <div className="glass-card flex items-start gap-6 p-8 transition-colors hover:bg-surface-container-high">
-              <div className="rounded-lg bg-secondary-container/20 p-3 text-secondary">
-                <span
-                  className="material-symbols-outlined"
-                  style={filledIconStyle}
-                >
-                  rocket_launch
-                </span>
-              </div>
-              <div>
-                <h4 className="mb-1 font-headline text-xl font-bold">
-                  Cutting-Edge Innovation
-                </h4>
-                <p className="text-sm text-on-surface-variant">
-                  Access to R&amp;D labs and the latest technological
-                  breakthroughs before they hit the mainstream.
-                </p>
-              </div>
-            </div>
-
-            <div className="glass-card flex translate-x-0 items-start gap-6 p-8 transition-colors hover:bg-surface-container-high md:translate-x-6">
-              <div className="rounded-lg bg-secondary-container/20 p-3 text-secondary">
-                <span
-                  className="material-symbols-outlined"
-                  style={filledIconStyle}
-                >
-                  groups
-                </span>
-              </div>
-              <div>
-                <h4 className="mb-1 font-headline text-xl font-bold">
-                  Expert Team
-                </h4>
-                <p className="text-sm text-on-surface-variant">
-                  A collective of senior architects, data scientists, and
-                  creative engineers with decades of experience.
-                </p>
-              </div>
-            </div>
-
-            <div className="glass-card flex items-start gap-6 p-8 transition-colors hover:bg-surface-container-high">
-              <div className="rounded-lg bg-secondary-container/20 p-3 text-secondary">
-                <span
-                  className="material-symbols-outlined"
-                  style={filledIconStyle}
-                >
-                  award_star
-                </span>
-              </div>
-              <div>
-                <h4 className="mb-1 font-headline text-xl font-bold">
-                  Proven Track Record
-                </h4>
-                <p className="text-sm text-on-surface-variant">
-                  Delivering high-impact solutions for Fortune 500 companies and
-                  high-growth tech ventures alike.
-                </p>
-              </div>
-            </div>
+            {advantageCards.map((card) => (
+              <AdvantageCard
+                key={card.title}
+                icon={card.icon}
+                title={card.title}
+                description={card.description}
+                className={card.className}
+              />
+            ))}
           </div>
         </div>
       </div>

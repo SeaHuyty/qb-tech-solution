@@ -2,6 +2,46 @@ import type { CSSProperties } from "react";
 
 const filledIconStyle: CSSProperties = {
   fontVariationSettings: "'FILL' 1",
+};
+
+type ServiceCardProps = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const serviceCards = [
+  {
+    icon: "psychology",
+    title: "AI & Automation",
+    description:
+      "Leverage neural networks and robotic process automation to eliminate bottlenecks and predict future market shifts.",
+  },
+  {
+    icon: "auto_awesome",
+    title: "Digital Transformation",
+    description:
+      "Modernize legacy frameworks and transition to cloud-native architectures without disrupting your core business flow.",
+  },
+];
+
+function ServiceCard({ icon, title, description }: ServiceCardProps) {
+  return (
+    <div className="glass-card group col-span-1 p-12 transition-all hover:bg-surface-container-low md:col-span-4">
+      <div className="mb-8">
+        <span
+          className="material-symbols-outlined text-4xl text-primary-container"
+          style={filledIconStyle}
+        >
+          {icon}
+        </span>
+      </div>
+      <h3 className="mb-4 font-headline text-2xl font-bold">{title}</h3>
+      <p className="text-sm leading-relaxed text-on-surface-variant">
+        {description}
+      </p>
+    </div>
+  );
 }
 
 export default function ServiceSection() {
@@ -19,7 +59,7 @@ export default function ServiceSection() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
-            <div className="glass-card group relative col-span-1 flex min-h-[400px] flex-col justify-end overflow-hidden p-12 transition-all hover:bg-surface-container-low md:col-span-8">
+            <div className="glass-card group relative col-span-1 flex min-h-100 flex-col justify-end overflow-hidden p-12 transition-all hover:bg-surface-container-low md:col-span-8">
               <div className="absolute left-12 top-12">
                 <span
                   className="material-symbols-outlined text-5xl text-primary-container"
@@ -45,43 +85,16 @@ export default function ServiceSection() {
               />
             </div>
 
-            <div className="glass-card group col-span-1 p-12 transition-all hover:bg-surface-container-low md:col-span-4">
-              <div className="mb-8">
-                <span
-                  className="material-symbols-outlined text-4xl text-primary-container"
-                  style={filledIconStyle}
-                >
-                  psychology
-                </span>
-              </div>
-              <h3 className="mb-4 font-headline text-2xl font-bold">
-                AI &amp; Automation
-              </h3>
-              <p className="text-sm leading-relaxed text-on-surface-variant">
-                Leverage neural networks and robotic process automation to
-                eliminate bottlenecks and predict future market shifts.
-              </p>
-            </div>
+            {serviceCards.map((card) => (
+              <ServiceCard
+                key={card.title}
+                icon={card.icon}
+                title={card.title}
+                description={card.description}
+              />
+            ))}
 
-            <div className="glass-card col-span-1 p-12 transition-all hover:bg-surface-container-low md:col-span-4">
-              <div className="mb-8">
-                <span
-                  className="material-symbols-outlined text-4xl text-primary-container"
-                  style={filledIconStyle}
-                >
-                  auto_awesome
-                </span>
-              </div>
-              <h3 className="mb-4 font-headline text-2xl font-bold">
-                Digital Transformation
-              </h3>
-              <p className="text-sm leading-relaxed text-on-surface-variant">
-                Modernize legacy frameworks and transition to cloud-native
-                architectures without disrupting your core business flow.
-              </p>
-            </div>
-
-            <div className="group col-span-1 flex items-center justify-between overflow-hidden bg-surface-container-lowest px-12 md:col-span-8">
+            <div className="glass-card group col-span-1 flex items-center justify-between overflow-hidden bg-surface-container-lowest px-12 transition-all hover:bg-surface-container-low md:col-span-8">
               <div className="py-12">
                 <h3 className="mb-2 font-headline text-2xl font-bold text-on-surface">
                   Ready to evolve?

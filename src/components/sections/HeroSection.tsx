@@ -23,7 +23,7 @@ export default function HeroSection() {
               reality.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="rounded-sm bg-gradient-to-br from-primary to-primary-container px-8 py-4 font-label uppercase tracking-widest text-on-primary transition-all hover:opacity-90 active:scale-95">
+              <button className="rounded-sm bg-linear-to-br from-primary to-primary-container px-8 py-4 font-label uppercase tracking-widest text-on-primary transition-all hover:opacity-90 active:scale-95">
                 Explore Services
               </button>
               <button className="rounded-sm border border-outline-variant/40 bg-surface-container-low/20 px-8 py-4 font-label uppercase tracking-widest text-primary backdrop-blur-sm transition-all hover:border-outline-variant">

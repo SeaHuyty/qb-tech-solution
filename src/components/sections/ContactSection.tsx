@@ -3,7 +3,7 @@ export default function ContactSection() {
     <section className="bg-surface-container-lowest py-24">
       <div className="container mx-auto px-8">
         <div className="glass-card mx-auto flex max-w-6xl flex-col overflow-hidden rounded-xl md:flex-row">
-          <div className="border-outline-variant/10 bg-gradient-to-br from-[#0e141a] to-[#161c22] p-12 md:w-2/5 md:border-r">
+          <div className="border-outline-variant/10 bg-linear-to-br from-[#0e141a] to-surface-container-low p-12 md:w-2/5 md:border-r">
             <h2 className="mb-4 font-headline text-3xl font-bold">
               Ready to Build the Future?
             </h2>
@@ -65,7 +65,7 @@ export default function ContactSection() {
                   rows={4}
                 ></textarea>
               </div>
-              <button className="w-full rounded-sm bg-gradient-to-br from-primary to-primary-container py-4 text-sm font-bold font-label uppercase tracking-widest text-on-primary shadow-lg shadow-primary-container/10 transition-all hover:brightness-110 active:scale-[0.98]">
+              <button className="w-full rounded-sm bg-linear-to-br from-primary to-primary-container py-4 text-sm font-bold font-label uppercase tracking-widest text-on-primary shadow-lg shadow-primary-container/10 transition-all hover:brightness-110 active:scale-[0.98]">
                 Send Message
               </button>
             </form>
