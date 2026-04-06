@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# Quantum Bridge Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern single-page marketing website built with React, TypeScript, Vite, and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+This project is structured as reusable UI sections (hero, services, stats, contact, and more) combined in one main page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19
+- TypeScript
+- Vite 8
+- Tailwind CSS v4 (via `@tailwindcss/vite`)
+- ESLint 9
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### 1. Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Install the following tools:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 20+ (recommended)
+- npm 10+
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 2. Install dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Start the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Open the URL printed in your terminal (usually `http://localhost:5173`).
+
+## Available Scripts
+
+- `npm run dev` - start local development server with hot reload
+- `npm run build` - run TypeScript build check and create production build
+- `npm run preview` - preview the production build locally
+- `npm run lint` - run ESLint across the project
+
+## Project Structure
+
+```text
+src/
+  main.tsx                    # App entry point
+  index.css                   # Global styles + Tailwind theme tokens
+  pages/
+    App.tsx                   # Main page composition
+  components/
+    layouts/
+      NavBar.tsx
+      Footer.tsx
+    sections/
+      HeroSection.tsx
+      ServicesSection.tsx
+      WhyChooseUsSection.tsx
+      StatsSection.tsx
+      ContactSection.tsx
+```
+
+## How the App Works
+
+1. `src/main.tsx` renders the main page component.
+2. `src/pages/App.tsx` combines layout and section components in order.
+3. Each section in `src/components/sections/` is a standalone UI block.
+4. Shared look and feel (colors, fonts, utility classes) are defined in `src/index.css`.
+
+## Styling and Theme
+
+This project uses Tailwind CSS v4 with custom design tokens defined in `src/index.css` under the `@theme` block.
+
+To update branding quickly:
+
+- Change color tokens (for example `--color-primary`, `--color-background`)
+- Update font tokens (`--font-headline`, `--font-body`, `--font-label`)
+- Edit utility classes like `.glass-card` or `.text-gradient`
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+Production files are generated in the `dist/` folder.
+
+To test the production output locally:
+
+```bash
+npm run preview
+```
+
+## Notes
+
+- The contact form currently provides UI only (no backend submission yet).
+- Navigation links are present in the navbar and can be wired to section IDs as needed.
